@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* ألوان الواجهة — محايدة عشان تخدم أكثر من هوية؛ لمسة نحاسية للأفعال الأساسية */
+:root {
+  --bg: #f3f2ee;
+  --surface: #ffffff;
+  --surface-2: #f8f7f4;
+  --ink: #15171c;
+  --ink-2: #4a4e57;
+  --muted: #8a8d95;
+  --line: #e4e1da;
+  --line-2: #d6d2c8;
+  --brand: #14213d;
+  --brand-ink: #ffffff;
+  --accent: #c8792e;
+  --accent-soft: #f6e9da;
+  --ok: #1f8a5b;
+  --ok-soft: #e1f3ea;
+  --warn: #b7791f;
+  --warn-soft: #fbf0d9;
+  --err: #c03a3a;
+  --err-soft: #fbe5e5;
+  --canvas: #e8e6e0;
+  --shadow: 0 1px 2px rgba(20, 22, 28, .06), 0 8px 24px rgba(20, 22, 28, .06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111215; --surface: #18191d; --surface-2: #1e1f24; --ink: #eceae4; --ink-2: #b9b7b0; --muted: #82848b;
+    --line: #2a2b31; --line-2: #35363d; --brand: #e9e4d8; --brand-ink: #14161a; --accent: #e09a52; --accent-soft: #3a2a1b;
+    --ok: #4cc28a; --ok-soft: #173326; --warn: #e5b45a; --warn-soft: #3a2f17; --err: #ef7676; --err-soft: #3d1c1c;
+    --canvas: #0c0d0f; --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-err: var(--err);
+  --color-err-soft: var(--err-soft);
+  --color-canvas: var(--canvas);
+  --font-sans: var(--font-plex), system-ui, sans-serif;
+  --shadow-card: var(--shadow);
+}
+
+html, body { background: var(--bg); color: var(--ink); }
+body { font-family: var(--font-plex), system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--accent-soft); }
+
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 h-9 text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap; }
+.btn-primary { @apply bg-brand text-brand-ink hover:opacity-90; }
+.btn-accent { @apply bg-accent text-white hover:brightness-110; }
+.btn-ghost { @apply text-ink-2 hover:bg-surface-2 hover:text-ink; }
+.btn-outline { @apply border border-line bg-surface hover:border-line-2 hover:bg-surface-2; }
+.btn-sm { @apply h-8 px-2.5 text-[13px]; }
+.icon-btn { @apply inline-flex items-center justify-center size-8 rounded-lg text-ink-2 hover:bg-surface-2 hover:text-ink transition-colors disabled:opacity-40; }
+.card { @apply bg-surface border border-line rounded-xl; }
+.input { @apply w-full rounded-lg border border-line bg-surface px-3 h-9 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition; }
+.textarea { @apply w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition resize-y leading-relaxed; }
+.label { @apply text-xs font-medium text-ink-2 mb-1.5 block; }
+.chip { @apply inline-flex items-center gap-1 rounded-full px-2 h-5 text-[11px] font-medium; }
+.scroll-thin { scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+.mono { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; }
+
+@keyframes shimmer { 0% { background-position: -400px 0 } 100% { background-position: 400px 0 } }
+.shimmer { background: linear-gradient(90deg, var(--surface-2) 0%, var(--line) 50%, var(--surface-2) 100%); background-size: 800px 100%; animation: shimmer 1.4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg) } }
+.spin { animation: spin 1s linear infinite; }

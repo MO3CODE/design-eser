@@ -1,0 +1,36 @@
+{
+  "name": "design-eser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "استوديو تصميم ذكي: ارفع خطة المحتوى ← يصمم بنفس محركات مهارات Claude (Güzel Eser · بوابة المستثمر) عبر RadoxAI",
+  "scripts": {
+    "sync": "node scripts/sync-skills.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "idb-keyval": "6.2.1",
+    "jszip": "3.10.1",
+    "lucide-react": "0.469.0",
+    "mammoth": "1.9.0",
+    "modern-screenshot": "4.6.0",
+    "next": "16.3.8",
+    "puppeteer-core": "24.10.0",
+    "qrcode": "1.5.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+    "zustand": "5.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.13",
+    "@types/node": "22.15.0",
+    "@types/qrcode": "1.5.5",
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
+    "tailwindcss": "4.1.13",
+    "typescript": "5.9.2"
+  }
+}
